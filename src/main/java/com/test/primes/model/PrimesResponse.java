@@ -1,26 +1,28 @@
 package com.test.primes.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.Valid;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Response
+ * PrimesResponse
  */
-@Validated
-public class Response   {
+@XmlRootElement(name = "PrimeResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PrimesResponse implements Serializable {
   @JsonProperty("initial")
   private Integer initial = null;
 
   @JsonProperty("primes")
   @Valid
-  private List<Integer> primes = null;
+  private Set<Integer> primes = null;
 
-  public Response initial(Integer initial) {
+  public PrimesResponse initial(Integer initial) {
     this.initial = initial;
     return this;
   }
@@ -37,14 +39,14 @@ public class Response   {
     this.initial = initial;
   }
 
-  public Response primes(List<Integer> primes) {
+  public PrimesResponse primes(Set<Integer> primes) {
     this.primes = primes;
     return this;
   }
 
-  public Response addPrimesItem(Integer primesItem) {
+  public PrimesResponse addPrimesItem(Integer primesItem) {
     if (this.primes == null) {
-      this.primes = new ArrayList<Integer>();
+      this.primes = new HashSet<Integer>();
     }
     this.primes.add(primesItem);
     return this;
@@ -54,11 +56,11 @@ public class Response   {
    * Get primes
    * @return primes
   **/
-  public List<Integer> getPrimes() {
+  public Set<Integer> getPrimes() {
     return primes;
   }
 
-  public void setPrimes(List<Integer> primes) {
+  public void setPrimes(Set<Integer> primes) {
     this.primes = primes;
   }
 
@@ -71,9 +73,9 @@ public class Response   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Response response = (Response) o;
-    return Objects.equals(this.initial, response.initial) &&
-        Objects.equals(this.primes, response.primes);
+    PrimesResponse primesResponse = (PrimesResponse) o;
+    return Objects.equals(this.initial, primesResponse.initial) &&
+        Objects.equals(this.primes, primesResponse.primes);
   }
 
   @Override
@@ -84,7 +86,7 @@ public class Response   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Response {\n");
+    sb.append("class PrimesResponse {\n");
     
     sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
     sb.append("    primes: ").append(toIndentedString(primes)).append("\n");

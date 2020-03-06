@@ -1,7 +1,5 @@
 package com.test.primes.enumerations;
 
-import com.sun.javafx.scene.traversal.Algorithm;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,13 +19,18 @@ public enum Algorithms {
     }
 
     public static Algorithms getValue(String alg){
-        List<Algorithms> algArray = Arrays.asList(Algorithms.values());
 
-        for(Algorithms algorithms : algArray){
-            algorithms.
+        if(alg != null){
+            List<Algorithms> algArray = Arrays.asList(Algorithms.values());
+
+            for(Algorithms algorithms : algArray){
+                if(algorithms.getAlg().equalsIgnoreCase(alg)){
+                    return algorithms;
+                }
+            }
         }
 
-        return algs;
+        return SIEVE_OF_ATKIN;
     }
 
 }

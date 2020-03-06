@@ -1,0 +1,5 @@
+include 'src'
+findProject(':src')?.name = 'prime-number-generator'
+include 'src'
+findProject(':src')?.name = 'primes'
+
