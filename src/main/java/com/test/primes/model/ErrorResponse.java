@@ -56,7 +56,7 @@ public class ErrorResponse   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
+    sb.append("ErrorResponse {\n");
     
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.validation.Valid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,7 +18,6 @@ public class PrimesResponse implements Serializable {
   private Integer initial = null;
 
   @JsonProperty("primes")
-  @Valid
   private Set<Integer> primes = null;
 
   public PrimesResponse initial(Integer initial) {
@@ -86,7 +84,7 @@ public class PrimesResponse implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PrimesResponse {\n");
+    sb.append("PrimesResponse {\n");
     
     sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
     sb.append("    primes: ").append(toIndentedString(primes)).append("\n");
