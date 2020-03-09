@@ -34,3 +34,10 @@ Kindly note below -
 1) If you want to test with larger values, please use Atkins algorithm. The largest value the service can take is 10 million.
 2) The Google Cloud Account is personal account, hence the instances are scaled down unless first traffic hits the service. First few calls can be slow. If the URL is down or not working, please email nikhil.palavalasa@gmail.com
 3) If you are using Postman tool to test the service, kindly note that the tool takes time to render the response of large inputs. The server responds fast enough (especially cached responses), however Postman takes sometime to render the output.
+
+Some sample test URLs ->
+
+https://prime-number-generator.appspot.com/primes/20?algorithm=sundaram
+https://prime-number-generator.appspot.com/primes/200?algorithm=atkins
+https://prime-number-generator.appspot.com/primes/20?algorithm=eratoshenes
+https://prime-number-generator.appspot.com/primes/2000
