@@ -37,7 +37,7 @@ Kindly note below -
 
 Some sample test URLs ->
 
-https://prime-number-generator.appspot.com/primes/20?algorithm=sundaram
-https://prime-number-generator.appspot.com/primes/200?algorithm=atkins
-https://prime-number-generator.appspot.com/primes/20?algorithm=eratoshenes
-https://prime-number-generator.appspot.com/primes/2000
+1. https://prime-number-generator.appspot.com/primes/20?algorithm=sundaram
+2. https://prime-number-generator.appspot.com/primes/200?algorithm=atkins
+3. https://prime-number-generator.appspot.com/primes/20?algorithm=eratoshenes
+4. https://prime-number-generator.appspot.com/primes/2000
