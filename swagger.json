@@ -1,0 +1,137 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Prime Number Generator API",
+    "description": "API to generate Prime Numbers",
+    "contact": {
+      "email": "nikhil.palavalasa@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://prime-number-generator.appspot.com"
+    }
+  ],
+  "paths": {
+    "/primes/{initial}": {
+      "get": {
+        "summary": "Fetches all primes up to the initial value",
+        "description": "By passing in the appropriate options, you can generate primes",
+        "operationId": "fecthPrimes",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "initial",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "algorithm",
+            "schema": {
+              "type": "string",
+              "example": "Eratosthenes, Atkins, Sundaram"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prime numbers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/response"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/response"
+                }
+              },
+              "text/plain; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/textResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong Input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              },
+              "text/plain; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/textErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Something went wrong"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "response": {
+        "type": "object",
+        "properties": {
+          "initial": {
+            "type": "integer"
+          },
+          "primes": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "textResponse": {
+        "type": "object",
+        "properties": {
+          "initial": {
+            "type": "string",
+            "example": "10"
+          },
+          "primes": {
+            "type": "string",
+            "example": "2,3,5,7"
+          }
+        }
+      },
+      "errorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Please enter a positive integer"
+          }
+        }
+      },
+      "textErrorResponse": {
+        "type": "string",
+        "example": "Please enter a positive integer"
+      }
+    }
+  }
+}
